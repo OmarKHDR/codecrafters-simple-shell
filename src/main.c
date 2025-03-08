@@ -14,6 +14,6 @@ int main(int argc, char *argv[]) {
   fgets(input, 100, stdin);
   int end = strcspn(input, "\r\n");
   input[end] = '\0';
-  printf("%s: command not found", input);
+  printf("%s: command not found\n", input);
   return 0;
 }
