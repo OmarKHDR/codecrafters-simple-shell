@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
+#include "headers.h"
+
 
 int main(int argc, char *argv[]) {
   // Flush after every printf
@@ -15,6 +17,10 @@ int main(int argc, char *argv[]) {
     fgets(input, 100, stdin);
     int end = strcspn(input, "\r\n");
     input[end] = '\0';
+    int status = handleExit(strdup(input));
+    if ( status >= 0) {
+      exit(status);
+    }
     printf("%s: command not found\n", input);
   }
   return 0;
