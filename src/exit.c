@@ -1,15 +1,18 @@
 #include "headers.h"
-#include <string.h>
-#include <stdio.h>
-#include <ctype.h>
 
-int handleExit(char *command) {
-	char *tok = strtok(command, " ");
-	if (!strncmp(tok, "exit", 4)) {
-		tok = strtok(NULL, " ");
-		if (isdigit(*tok)) {
-			return (int)(*tok) - (int)('0');
-		}
+
+int handle_exit(char *code_str) {
+	if (isdigit(*code_str)) {
+		return (int)(*code_str) - (int)('0');
 	}
 	return -1;
+}
+
+void my_exit(char *code_str) {
+	if (code_str) {
+		int code = handle_exit(code_str);
+		exit(code);
+	} else {
+		exit(-1);
+	}
 }
