@@ -2,7 +2,7 @@
 #include <sys/wait.h>
 
 void execute(char * command, char *path){
-    char *args[100];  // Array to hold command arguments
+    char *args[100];
     int i = 0;
     char *token = strtok(command, " ");
     while (token != NULL && i < 99) {
