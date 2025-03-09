@@ -5,6 +5,8 @@
 #include <string.h>
 #include <ctype.h>
 #include <stdbool.h>
+#include <unistd.h>
+
 #define hashsize 100
 
 void my_exit(char *command);
