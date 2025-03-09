@@ -16,6 +16,8 @@ void my_type(char *name);
 int handle_exit(char *code_str);
 int compare_and_execute(char *command);
 
+char *find_path(char *str);
+
 typedef struct xx {
 	char *name;
 	void (*func)(char *c);
