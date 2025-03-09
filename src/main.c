@@ -4,7 +4,7 @@
 int main(int argc, char *argv[]) {
   // Flush after every printf
   setbuf(stdout, NULL);
-
+  register_commands();
   while (true) {
     // Uncomment this block to pass the first stage
     printf("$ ");

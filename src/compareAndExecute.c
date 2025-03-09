@@ -1,16 +1,16 @@
 #include "headers.h"
 
 
-int compare_and_execute(char *command) {
-	char *token = strtok(strdup(command), " ");
-	if (!strcmp(token, "exit")) {
-		token = strtok(NULL, " ");
-		my_exit(token);
-	} else if (!strcmp(token, "echo")) {
-		token = strtok(NULL, " ");
-		my_echo(strdup(command));
-	} else {
-		printf("%s: command not found\n", command);
+int compare_and_execute(char *str) {
+	char *token = strtok(strdup(str), " ");
+	if(token) {
+		Command *command = (Command *) malloc(sizeof(Command *));
+		command = get_command(token);
+		if (command) {
+			command->func(str);
+		} else {
+			printf("%s: command not found\n", token);
+		}
 	}
 
 	return 0;

@@ -8,11 +8,11 @@ int handle_exit(char *code_str) {
 	return -1;
 }
 
-void my_exit(char *code_str) {
+void my_exit(char *command) {
+	char *code_str = strchr(strdup(command), ' ');
+	int code = -1;
 	if (code_str) {
-		int code = handle_exit(code_str);
-		exit(code);
-	} else {
-		exit(-1);
-	}
+		code = handle_exit(code_str+1);
+	} 
+	exit(code);
 }
