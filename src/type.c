@@ -10,17 +10,24 @@ void my_type(char *name) {
 			printf("%s\n", command->info);
 		} else {
 			char *path = strdup(getenv("PATH"));
-			char *token = strtok(strdup(path), ":");
+			char *token = strtok(path, ":");
 			while(token) {
-				char *try = strcat(strdup(token),strcat(strdup("/"), str));
+				int len = strlen(token) + strlen(str) + 2;
+				char *try = malloc(sizeof(char) * len);
+				snprintf(try, len, "%s/%s", token, str);
 				if (!access(try, X_OK)) {
 					printf("%s is %s\n", str, try);
+					free(try);
+					free(command);
+					free(path);
 					return;
 				}
-				//printf("%s ------failed\n", try);
+				free(try);
 				token = strtok(NULL, ":");
 			}
 			printf("%s: not found\n", str);
+			free(command);
+			free(path);
 		}
 	}
 }
