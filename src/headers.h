@@ -13,7 +13,7 @@ void my_exit(char *command);
 void my_echo(char *command);
 void my_type(char *name);
 void my_pwd(char *command);
-
+void my_cd(char *command);
 
 int handle_exit(char *code_str);
 int compare_and_execute(char *command);

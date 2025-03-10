@@ -5,4 +5,5 @@ void register_commands() {
 	insert_command("echo", my_echo, strdup("echo is a shell builtin"));
 	insert_command("type", my_type, strdup("type is a shell builtin"));
 	insert_command("pwd", my_pwd, strdup("pwd is a shell builtin"));
+	insert_command("cd", my_cd, strdup("cd is a shell builtin"));
 }
